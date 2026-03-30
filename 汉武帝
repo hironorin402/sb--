@@ -1,0 +1,125 @@
+#include <iostream>
+#include<string>
+#include<fstream>
+#include<cstdio>
+using namespace std;
+int room = 0; // 房间层级
+class jilei
+{
+public:
+    void get_gjl(int gjl)
+    {
+        m_gjl = gjl;
+    }
+    void get_fyl(int fyl)
+    {
+        m_fyl = fyl;
+    }
+    void get_hp(int hp)
+    {
+        m_hp = hp;
+    }
+    int set_gjl()
+    {
+        return m_gjl;
+    }
+private:
+    int m_gjl; //攻击力
+    int m_fyl;  // 防御力
+    int m_hp; //血量
+};
+class player : public jilei
+{
+public:
+    void get_lv(int lv)
+    {
+        m_lv = lv;
+    }void get_jyz(int jyz)
+    {
+        m_jyz = jyz;
+    }
+private:
+    int m_jyz; // 经验值20升级
+    int m_lv; //等级
+    int m_yao; //药瓶
+};
+class enemy : public jilei
+{
+
+};
+class boos : public jilei
+{
+
+};
+int main()
+{
+    player p;
+    p.get_gjl(10);
+    p.get_fyl(5);
+    p.get_hp(80);
+    p.get_jyz(0);
+    p.get_lv(1);
+
+}#include <iostream>
+#include<string>
+#include<fstream>
+#include<cstdio>
+using namespace std;
+int room = 0; // 房间层级
+class jilei
+{
+public:
+    void get_gjl(int gjl)
+    {
+        m_gjl = gjl;
+    }
+    void get_fyl(int fyl)
+    {
+        m_fyl = fyl;
+    }
+    void get_hp(int hp)
+    {
+        m_hp = hp;
+    }
+    int set_gjl()
+    {
+        return m_gjl;
+    }
+private:
+    int m_gjl; //攻击力
+    int m_fyl;  // 防御力
+    int m_hp; //血量
+};
+class player : public jilei
+{
+public:
+    void get_lv(int lv)
+    {
+        m_lv = lv;
+    }void get_jyz(int jyz)
+    {
+        m_jyz = jyz;
+    }
+private:
+    int m_jyz; // 经验值20升级
+    int m_lv; //等级
+    int m_yao; //药瓶
+};
+class enemy : public jilei
+{
+
+};
+class boos : public jilei
+{
+
+};
+int main()
+{
+    player p;
+    p.get_gjl(10);
+    p.get_fyl(5);
+    p.get_hp(80);
+    p.get_jyz(0);
+    p.get_lv(1);
+
+}
