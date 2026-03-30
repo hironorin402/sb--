@@ -1,0 +1,100 @@
+#include <iostream>
+#include<string>
+#include<fstream>
+#include<cstdio>
+using namespace std;
+int a;//计入玩家的界面选择
+int room = 0; // 房间层级
+class jilei
+{
+public:
+    void get_gjl(int gjl)
+    {
+        m_gjl = gjl;
+    }
+    void get_fyl(int fyl)
+    {
+        m_fyl = fyl;
+    }
+    void get_hp(int hp)
+    {
+        m_hp = hp;
+    }
+    void add_hp(int hp)
+    {
+        m_hp += hp;
+    }
+    int set_gjl()
+    {
+        return m_gjl;
+    }
+    int set_fyl()
+    {
+        return m_fyl;
+    }
+    int set_hp()
+    {
+        return m_hp;
+    }
+private:
+    int m_gjl; //攻击力
+    int m_fyl;  // 防御力
+    int m_hp; //血量
+};
+class player : public jilei
+{
+public:
+    int m_yao; //药瓶
+    void get_lv(int lv)
+    {
+        m_lv = lv;
+    }void get_jyz(int jyz)
+    {
+        m_jyz = jyz;
+    }
+private:
+    int m_jyz; // 经验值20升级
+    int m_lv; //等级
+};
+class enemy : public jilei
+{
+
+};
+class boos : public jilei
+{
+
+};
+player p;
+void ui2()
+{
+    cout << "=======================================================================================" << endl;
+    cout << "玩家属性   生命值: " << p.set_hp() << "    " << "攻击力: " << p.set_gjl() << "    " << "防御力: " << p.set_fyl() << "    " << "药瓶数：" << p.m_yao << "       " << "当前层级:" << room << endl;
+    cout << "选项" << endl;
+    cout << "1: " << "继续探索" << endl;
+    cout << "2: " << "使用药瓶" << endl;
+    cout << "3: " << "存档" << endl;
+    cout << "=======================================================================================" << endl;
+}
+int main()
+{
+    p.get_gjl(10);
+    p.get_fyl(5);
+    p.get_hp(80);
+    p.get_jyz(0);
+    p.get_lv(1);
+    p.m_yao = 3;
+    ui2();
+    cin >> a;
+    switch (a)
+    {
+    case 1: room += 1; break;
+    case 2: if (p.m_yao > 0)
+    {
+        p.m_yao -= 1; p.add_hp(30); ui2(); break;
+    }
+          else
+    {
+        cout << "无药瓶"; ui2(); break;
+    }
+    }
+}
